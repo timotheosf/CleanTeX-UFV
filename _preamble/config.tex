@@ -1,0 +1,79 @@
+\usepackage{etoolbox} % Permite lógica booleana e condicionais
+
+% --- DEFINIÇÃO DAS VARIÁVEIS (GETTERS/SETTERS) ---
+%> Variável booleana (true/false) para formatação
+\newtoggle{ufvnorms}
+\newcommand{\UseUFVNorms}[1]{%
+    \ifstrequal{#1}{True}{\toggletrue{ufvnorms}}{%
+    \ifstrequal{#1}{true}{\toggletrue{ufvnorms}}{\togglefalse{ufvnorms}}}%
+}
+%> Variável boolena (true/false) para o cabeçalho
+\newtoggle{useheaders}
+\newcommand{\UseHeaders}[1]{%
+    \ifstrequal{#1}{True}{\toggletrue{useheaders}}{%
+    \ifstrequal{#1}{true}{\toggletrue{useheaders}}{\togglefalse{useheaders}}}%
+}
+%> Comandos para nomear o documento
+\newcommand{\ThesisTitle}[1]{\def\thesistitle{#1}}
+\newcommand{\ThesisAuthor}[1]{\def\thesisauthor{#1}}
+\newcommand{\ThesisAdvisor}[1]{\def\thesisadvisor{#1}}
+\newcommand{\ThesisCoAdvisor}[1]{\def\thesiscoadvisor{#1}}
+\newcommand{\ThesisModality}[1]{\def\thesismodality{#1}}
+\newcommand{\ThesisDegree}[1]{\def\thesisdegree{#1}}
+\newcommand{\ThesisDate}[1]{\def\thesisdate{#1}}
+\newcommand{\ThesisProgram}[1]{\def\thesisprogram{#1}}
+\newcommand{\ThesisCenter}[1]{\def\thesiscenter{#1}}
+\newcommand{\ReportCourse}[1]{\def\reportcourse{#1}}
+
+%> Valores padrão (fallback) caso o usuário esqueça de preencher algo
+\def\thesistitle{Título não definido}
+\def\thesisauthor{Autor não definido}
+\def\thesiscoadvisor{} % Inicia vazio para o ifdefempty funcionar
+\def\thesismodality{Dissertação}
+\def\thesisdegree{Mestre}
+\def\thesisdate{\today}
+\def\thesisprogram{Física}
+\def\thesiscenter{Centro de Ciências Exatas}
+\def\reportcourse{}
+
+%> Macro para construção do template
+\newcommand{\BuildTemplateSetup}{%
+    
+    %> 1. Carrega os pacotes e ferramentas do usuário
+    \input{_preamble/packages}
+    \input{_preamble/standard_notation}
+
+    %> 2. Carrega as opções de formatação: UFV / Publish
+    \iftoggle{ufvnorms}{%
+        \input{_preamble/format2ufv}     % Carrega o driver da UFV
+    }{%
+        \input{_preamble/format2publish} % Carrega o driver fancy
+    }
+
+    %> 3. Carrega o hyperref e bibtex
+    \usepackage{hyperref}
+    \iftoggle{ufvnorms}{%
+        \hypersetup{
+            colorlinks=true, 
+            allcolors=black
+        }
+    }{%
+        \hypersetup{
+            colorlinks=true,
+        	linkcolor=NavyBlue,
+        	urlcolor=MediumBlue,
+        	citecolor=ForestGreen,
+        	pdfhighlight=/N
+        }
+
+    }
+    \addbibresource{_bibliography/references.bib}
+
+    %> 4. Metadados no PDF e no Título do LaTeX
+    \hypersetup{
+        pdftitle={\thesistitle},
+        pdfauthor={\thesisauthor}
+    }
+    \title{\thesistitle}
+    \author{\thesisauthor}
+}
