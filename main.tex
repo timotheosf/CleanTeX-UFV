@@ -1,0 +1,42 @@
+\documentclass[oneside, a4paper, 12pt]{book} % Retire a opção `oneside` para impressão
+\input{_preamble/config} % Importa o arquivo de configuração global do documento
+
+%> Opções de compilação
+\UseUFVNorms{True} % Compilar utilizando as normas da UFV, opções: True | False (para gerar documento fancy, com fins de publicação)
+\UseHeaders{True}   % Compilar com cabeçalho, opções: True | False
+
+%> Dados do documento:
+\ThesisTitle{Título do documento}           % Título do trabalho
+\ThesisAuthor{Nome do orientado}            % Nome do orientado
+\ThesisAdvisor{Nome do orientador}          % Nome do orientador
+%\ThesisCoAdvisor{Coorienador}               % Para mais de um coorientador, separar nomes usando "\\"
+\ThesisModality{Dissertação}                % Monografia, Dissertação ou Tese
+\ThesisDegree{Mestre}                       % Mestre ou Doutor; é uma dummy variable para Monografia (pode deixar em branco)
+\ThesisDate{Junho/2026}                     % Data
+\ThesisProgram{Física}                      % Nome do departamento
+\ThesisCenter{Centro de Ciências Exatas}    % Nome do centro
+%\ReportCourse{Monografia II (FIS 497)}      % Nome da disciplina de monografia (caso necessário)
+
+\BuildTemplateSetup % Faz o build do template (função macro em _preamble/config)
+
+\begin{document}
+
+\pagenumbering{Alph} % Numeração com letras para a capa
+\input{_title/titlepage}
+
+\cleardoublepage
+\pagenumbering{roman} % Numeração com algarismos romanos
+\tableofcontents\newpage
+
+\cleardoublepage
+\pagenumbering{arabic} % Numeração com algarismos indo-arábicos (padrão)
+\input{lero_lero}
+
+%>Bibliogafia
+\input{_bibliography/bib}
+
+%> Apêndices
+%\appendix
+%\input{appendix/appendix_name}
+
+\end{document}
