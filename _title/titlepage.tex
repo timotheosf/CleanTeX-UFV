@@ -1,0 +1,54 @@
+\thispagestyle{empty}
+\begin{titlepage}
+
+\begin{center}
+Universidade Federal de Viçosa\\
+\thesiscenter\\
+% Lógica condicional: Departamento (Graduação) vs Programa (Pós)
+\ifdefstring{\thesismodality}{Monografia}{%
+    Departamento de \thesisprogram\\
+}{%
+    Programa de Pós-Graduação em \thesisprogram\\
+}
+\end{center}
+
+\vspace*{\fill} 
+
+\begin{center}
+\rule{0.4\linewidth}{0.8pt}\vspace{0.4cm}\par
+{\bfseries\Large \thesistitle \par}
+\vspace{0.3cm}\rule{0.4\linewidth}{0.8pt}\par
+\end{center}
+
+\vspace*{\fill}
+\hfill
+\begin{minipage}[c][3cm][c]{8cm}
+\ifdefstring{\thesismodality}{Monografia}{%
+    \small{\thesismodality\ apresentada ao Departamento de \thesisprogram\ da Universidade Federal de Viçosa como parte das exigências para a conclusão da disciplina \reportcourse.}
+}{%
+    \small{\thesismodality\ apresentada à Universidade Federal de Viçosa como parte das exigências para obtenção do título de \thesisdegree\ em \thesisprogram.}
+}
+\end{minipage}
+
+\vspace{0.5cm}
+
+\hfill
+\begin{minipage}[c][2cm][c]{8cm}
+\small{
+\begin{flushright}
+\textbf{Estudante:} \thesisauthor \\
+\textbf{Orientador:} \thesisadvisor \\
+\ifdefempty{\thesiscoadvisor}{}{%
+    \textbf{Coorientador:} \thesiscoadvisor%
+}
+\end{flushright}
+}
+\end{minipage}
+
+\vspace{1cm}
+\begin{center}
+Viçosa, Minas Gerais -- Brasil\\
+\thesisdate
+\end{center}
+
+\end{titlepage}
