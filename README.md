@@ -36,14 +36,16 @@ CleanTeX-UFV/
 \ReportCourse{Disciplina da Monografia}     % Nome da disciplina de monografia, e.g. Monografia II (FIS 497)
 ```
 
-| Comando | Descrição / Uso recomendado | Exemplo de Saída (Estilo Numérico) |
-| :--- | :--- | :--- |
-| `\citet{chave}` | **Citação textual:** Use quando o nome do autor faz parte da sua frase. | Einstein [1] |
-| `\citep{chave}` | **Citação parentética:** Use no final da frase, quando o autor não é o sujeito. | [1] |
-| `\citet*{chave}` | Mesma coisa que `\citet`, mas força a impressão de **todos os autores** (ignora o *et al.*). | Einstein, Podolsky e Rosen [1] |
-| `\citep*{chave}` | Mesma coisa que `\citep`, mas força a impressão de **todos os autores**. | [1] |
-| `\citeauthor{chave}` | Imprime **apenas o nome** do autor. Útil para flexibilidade no texto. | Einstein |
-| `\citeyear{chave}` | Imprime **apenas o ano** da publicação. | 1905 |
+| Comando | Numérica | Autor-ano | ABNT Numérica | ABNT |
+| :--- | :--- | :--- | :--- | :--- |
+| `\citet{chave}` | Scrutinizer et al. [1] | Scrutinizer et al. (1979) | Scrutinizer et al. (2) | Scrutinizer et al. (1979) |
+| `\citep{chave}` | [1] | (Scrutinizer et al., 1979) | (2) | (SCRUTINIZER et al., 1979) |
+| `\citeauthor{chave}` | Scrutinizer et al. | Scrutinizer et al. | Scrutinizer et al. | (SCRUTINIZER et al.) |
+| `\citeyear{chave}` | 1979 | 1979 | 1979 | (1979) |
+| `\citet*{chave}` | Scrutinizer, Lucille e Joe [1] | Scrutinizer, Lucille e Joe (1979) | Scrutinizer; Lucille; Joe (2) | Scrutinizer, Lucille e Joe (1979) |
+| `\citep*{chave}` | [1] | (Scrutinizer, Lucille e Joe, 1979) | (2) | (SCRUTINIZER; LUCILLE; JOE, 1979) |
+| `\citeauthor*{chave}` | Scrutinizer, Lucille e Joe | Scrutinizer, Lucille e Joe | Scrutinizer; Lucille; Joe | SCRUTINIZER et al.* |
+| `\citeyear*{chave}` | 1979 | 1979 | 1979 | 1979 |
 
 ## 🛠️ Compilação
 
