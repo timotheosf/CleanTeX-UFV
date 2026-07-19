@@ -4,16 +4,33 @@
         right=2cm,
         bottom=2cm
     ]{geometry}
-\usepackage[
-    backend=biber,
-    style=abnt,
-    justify,
-    extrayear,
-    giveninits=true,
-    uniquelist=false,
-    uniquename=false,
-    natbib=true
-]{biblatex}
+\iftoggle{numericformat}{
+    \usepackage[
+        backend=biber,
+        style=abnt-numeric,
+        justify,
+        extrayear,
+        giveninits=true,
+        uniquelist=false,
+        uniquename=false,
+        natbib=true,
+        maxcitenames=1,
+        mincitenames=1
+    ]{biblatex}
+}{
+    \usepackage[
+        backend=biber,
+        style=abnt,
+        justify,
+        extrayear,
+        giveninits=true,
+        uniquelist=false,
+        uniquename=false,
+        natbib=true,
+        maxcitenames=1,
+        mincitenames=1
+    ]{biblatex}
+}
 
 \pagestyle{fancy}
 \fancyhf{} 

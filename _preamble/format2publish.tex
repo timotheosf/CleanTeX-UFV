@@ -3,12 +3,25 @@
         top=2.5cm,
         bottom=2.5cm
     ]{geometry}
-\usepackage[
-    backend=biber,
-    style=numeric-comp,
-    sorting=none,
-    natbib=true
-]{biblatex}
+\iftoggle{numericformat}{
+    \usepackage[
+        backend=biber,
+        style=numeric-comp,
+        sorting=none,
+        natbib=true,
+        maxcitenames=1,
+        mincitenames=1
+    ]{biblatex}
+}{
+    \usepackage[
+        backend=biber,
+        style=authoryear-comp,
+        sorting=nyt,
+        natbib=true,
+        maxcitenames=1,
+        mincitenames=1
+    ]{biblatex}
+}
 
 \iftoggle{useheaders}{
     \pagestyle{fancy}
