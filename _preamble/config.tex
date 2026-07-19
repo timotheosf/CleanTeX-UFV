@@ -13,6 +13,12 @@
     \ifstrequal{#1}{True}{\toggletrue{useheaders}}{%
     \ifstrequal{#1}{true}{\toggletrue{useheaders}}{\togglefalse{useheaders}}}%
 }
+\newtoggle{numericformat}
+\toggletrue{numericformat}
+\newcommand{\NumericFormat}[1]{%
+    \ifstrequal{#1}{True}{\toggletrue{numericformat}}{%
+    \ifstrequal{#1}{true}{\toggletrue{numericformat}}{\togglefalse{numericformat}}}%
+}
 %> Comandos para nomear o documento
 \newcommand{\ThesisTitle}[1]{\def\thesistitle{#1}}
 \newcommand{\ThesisAuthor}[1]{\def\thesisauthor{#1}}
