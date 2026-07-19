@@ -1,0 +1,154 @@
+\newcommand{\Cabecalho}{
+    Universidade Federal de Viçosa\\
+    \thesiscenter\\ % Centro...
+    % Lógica condicional: Departamento (Graduação) vs Programa (Pós)
+    \ifdefstring{\thesismodality}{Monografia}{%
+    Departamento de \thesisprogram\\
+    }{%
+    Programa de Pós-Graduação em \thesisprogram\\
+    }
+}
+
+\newcommand{\BigTitle}{
+    \begin{center}
+    \rule{0.4\linewidth}{0.8pt}\vspace{0.4cm}\par
+    {\bfseries\Large \thesistitle \par}
+    \vspace{0.3cm}\rule{0.4\linewidth}{0.8pt}\par
+    \end{center}
+}
+
+\newcommand{\bfTitle}{
+    {\bfseries\thesistitle}
+}
+
+\newcommand{\DocPresentation}{
+    \hfill
+    \begin{minipage}[c][3cm][c]{8cm}
+    \ifdefstring{\thesismodality}{Monografia}{%
+        \small{\thesismodality\ apresentada ao Departamento de \thesisprogram\ da Universidade Federal de Viçosa como parte das exigências para a conclusão da disciplina \reportcourse.}
+    }{%
+        \small{\thesismodality\ apresentada à Universidade Federal de Viçosa como parte das exigências para obtenção do título de \thesisdegree\ em \thesisprogram.}
+    }
+    \end{minipage}
+}
+
+\newcommand{\DocNames}{
+    \hfill
+    \begin{minipage}[c][2cm][c]{8cm}
+    \small{
+    \begin{flushright}
+    \textbf{Estudante:} \thesisauthor \\
+    \textbf{Orientador:} \thesisadvisor \\
+    \ifdefempty{\thesiscoadvisor}{}{%
+        \textbf{Coorientador:} \thesiscoadvisor%
+    }
+    \end{flushright}
+    }
+    \end{minipage}
+}
+
+\newcommand{\DocLocation}{
+    \begin{center}
+    Viçosa, Minas Gerais -- Brasil\\
+    \thesisdate
+    \end{center}
+}
+
+\newcommand{\BuildAcknowledgments}{
+    \begin{center}
+        {\bfseries\LARGE Agradecimentos}\vspace{0.5cm}
+    \end{center}
+
+    \hrulefill
+    \vspace{2cm}
+
+    \docacknowledgments
+}
+
+\newcommand{\BuildEpigraph}{
+    \vspace*{\fill}
+    \begin{flushright}
+    \begin{minipage}{0.5\textwidth}
+        \begin{flushleft}
+                {\itshape
+                \docepigraph}
+        \end{flushleft}
+        \begin{flushright}
+                --- \epigraphauthor
+        \end{flushright}
+    \end{minipage}
+    \end{flushright}
+    \vspace{2cm}
+}
+
+\newcommand{\BuildResumo}{
+    \begin{center}
+    \begin{minipage}[c][3cm][c]{12cm}
+    \centering
+    \Cabecalho
+    \vspace{0.3cm}
+    \textbf{Resumo}\\
+    \vspace{0.3cm}
+    \bfTitle
+    \vspace{1cm}
+    \end{minipage}
+    \end{center}
+    
+    \docresumo\\
+
+    \noindent
+    \textbf{Palavras-chave:} \docpalavraschave.
+    
+}
+
+\newcommand{\BuildAbstract}{
+    \begin{center}
+    \begin{minipage}[c][3cm][c]{12cm}
+    \centering
+    \Cabecalho
+    \vspace{0.3cm}
+    \textbf{Abstract}\\
+    \vspace{0.3cm}
+    \bfTitle
+    \vspace{1cm}
+    \end{minipage}
+    \end{center}
+    
+    \docabstract\\
+
+    \noindent
+    \textbf{Keywords:} \dockeywords.
+    
+}
+
+
+\newcommand{\BuildPretextual}{
+\iftoggle{pretextual}{
+    
+    \pagenumbering{Alph}
+    \input{_title/titlepage}
+
+    \cleardoublepage
+    \pagenumbering{roman}
+
+    \ifdefempty{\docresumo}{}{
+    \newpage
+    \BuildResumo    }
+
+    \ifdefempty{\docabstract}{}{
+    \newpage        
+    \BuildAbstract  }
+
+    \ifdefempty{\docacknowledgments}{}{
+    \newpage
+    \BuildAcknowledgments   }
+
+    \ifdefempty{\docepigraph}{}{
+    \newpage
+    \BuildEpigraph  }
+    }{}
+\newpage
+\tableofcontents
+\cleardoublepage
+\pagenumbering{arabic}
+}
