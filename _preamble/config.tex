@@ -19,6 +19,12 @@
     \ifstrequal{#1}{True}{\toggletrue{numericformat}}{%
     \ifstrequal{#1}{true}{\toggletrue{numericformat}}{\togglefalse{numericformat}}}%
 }
+\newtoggle{pretextual}
+\toggletrue{pretextual}
+\newcommand{\PreTextual}[1]{%
+    \ifstrequal{#1}{True}{\toggletrue{pretextual}}{%
+    \ifstrequal{#1}{true}{\toggletrue{pretextual}}{\togglefalse{pretextual}}}%
+}
 %> Comandos para nomear o documento
 \newcommand{\ThesisTitle}[1]{\def\thesistitle{#1}}
 \newcommand{\ThesisAuthor}[1]{\def\thesisauthor{#1}}
@@ -30,6 +36,12 @@
 \newcommand{\ThesisProgram}[1]{\def\thesisprogram{#1}}
 \newcommand{\ThesisCenter}[1]{\def\thesiscenter{#1}}
 \newcommand{\ReportCourse}[1]{\def\reportcourse{#1}}
+\newcommand{\DocAbstract}[1]{\def\docabstract{#1}}
+\newcommand{\DocResumo}[1]{\def\docresumo{#1}}
+\newcommand{\DocKeywords}[1]{\def\dockeywords{#1}}
+\newcommand{\DocPalavrasChave}[1]{\def\docpalavraschave{#1}}
+\newcommand{\DocAcknowledgments}[1]{\def\docacknowledgments{#1}}
+\newcommand{\DocEpigraph}[2]{\def\docepigraph{#1}\def\epigraphauthor{#2}}
 
 %> Valores padrão (fallback) caso o usuário esqueça de preencher algo
 \def\thesistitle{Título não definido}
@@ -41,6 +53,13 @@
 \def\thesisprogram{Física}
 \def\thesiscenter{Centro de Ciências Exatas}
 \def\reportcourse{}
+\def\docabstract{}
+\def\docresumo{}
+\def\dockeywords{}
+\def\docpalavraschave{}
+\def\docacknowledgments{}
+\def\docepigraph{}
+\def\epigraphauthor{}
 
 %> Macro para construção do template
 \newcommand{\BuildTemplateSetup}{%
@@ -82,4 +101,7 @@
     }
     \title{\thesistitle}
     \author{\thesisauthor}
+
+    %> 5. Carregar os macros pré-textuais
+    \input{_title/generalmacros}
 }
