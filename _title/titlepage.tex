@@ -1,54 +1,55 @@
-\thispagestyle{empty}
+\newcommand{\BuildTitlePage}{
 \begin{titlepage}
+\noindent\begin{minipage}[t][6cm][t]{\textwidth}
+    \begin{center}
+        \Cabecalho\vspace{2cm}
 
-\begin{center}
-Universidade Federal de Viçosa\\
-\doccenter\\
-% Lógica condicional: Departamento (Graduação) vs Programa (Pós)
-\ifdefstring{\docmodality}{Monografia}{%
-    Departamento de \docprogram\\
-}{%
-    Programa de Pós-Graduação em \docprogram\\
-}
-\end{center}
-
-\vspace*{\fill} 
-
-\begin{center}
-\rule{0.4\linewidth}{0.8pt}\vspace{0.4cm}\par
-{\bfseries\Large \doctitle \par}
-\vspace{0.3cm}\rule{0.4\linewidth}{0.8pt}\par
-\end{center}
+        {\large \textbf{\docauthor}}
+    \end{center}
+\end{minipage}
 
 \vspace*{\fill}
-\hfill
-\begin{minipage}[c][3cm][c]{8cm}
-\ifdefstring{\docmodality}{Monografia}{%
-    \small{\docmodality\ apresentada ao Departamento de \docprogram\ da Universidade Federal de Viçosa como parte das exigências para a conclusão da disciplina \reportcourse.}
-}{%
-    \small{\docmodality\ apresentada à Universidade Federal de Viçosa como parte das exigências para obtenção do título de \docdegree\ em \docprogram.}
-}
+\BigTitle
+\vspace*{\fill}
+
+\noindent\begin{minipage}[b][6cm][b]{\textwidth}
+    \DocLocation
 \end{minipage}
-
-\vspace{0.5cm}
-
-\hfill
-\begin{minipage}[c][2cm][c]{8cm}
-\small{
-\begin{flushright}
-\textbf{Estudante:} \docauthor \\
-\textbf{Orientador:} \docadvisor \\
-\ifdefempty{\doccoadvisor}{}{%
-    \textbf{Coorientador:} \doccoadvisor%
-}
-\end{flushright}
-}
-\end{minipage}
-
-\vspace{1cm}
-\begin{center}
-Viçosa, Minas Gerais -- Brasil\\
-\docdate
-\end{center}
-
 \end{titlepage}
+}
+
+\newcommand{\BuildCoverPage}{
+\cleardoublepage
+\begin{titlepage}
+\noindent\begin{minipage}[t][9cm][t]{\textwidth}
+    \begin{center}
+        {\large \textbf{\docauthor}}
+    \end{center}
+\end{minipage}
+
+\vspace*{\fill}
+\BigTitle
+\vspace*{\fill}
+
+\noindent\begin{minipage}[b][9cm][b]{\textwidth}
+    \BuildPresentation
+    \vspace{0.5cm}
+    \DocNames
+    \vspace*{\fill}
+    \DocLocation
+\end{minipage}
+\end{titlepage}
+}
+
+\ifboolexpr{
+    test {\ifdefstring{\docmodality}{Monografia}} 
+    or 
+    test {\ifdefstring{\docmodality}{Relatório}}
+}{
+    % SE FOR MONOGRAFIA OU RELATÓRIO:
+    \BuildCoverPage
+}{
+    % DISSERTAÇÃO OU TESE:
+    \BuildTitlePage
+    \BuildCoverPage
+}
