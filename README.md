@@ -4,6 +4,43 @@ Um template LaTeX modular, limpo e à prova de dores de cabeça (*idiot-proof*),
 
 A ideia é conferir liberdade para produzir um documento livre destas normas, mas sem comprometer o trabalho final, imprimindo o documento compatível com todas as exigências da UFV.
 
+## 🚀 Quickstart
+
+Basta abrir o template pelo link abaixo:
+
+[![Abrir com Overleaf](https://overleaf.com/assets/images/color_image_button.png)](https://www.overleaf.com/docs?snip_uri=https://github.com/timotheosf/CleanTeX-UFV/archive/refs/heads/main.zip)
+
+A primeira compilação pode demorar alguns segundos carregando os comandos de build e macros. É necessário preencher as *"variáveis de ambiente"* (comandos) do arquivo `_setup.tex` com nome, título e demais informações.
+
+Caso queira usar localmente, baixe o [arquivo zip](https://github.com/timotheosf/CleanTeX-UFV/archive/refs/heads/main.zip) ou clone o repositório:
+```bash
+git clone https://github.com/timotheosf/CleanTeX-UFV.git
+```
+O template utiliza o `biber`, compilando com a seguinte receita:
+```bash
+pdflatex main.tex
+biber main
+pdflatex main.tex
+pdflatex main.tex
+```
+
+## 👁️ Visualização do Template
+
+Veja a diferença entre o formato estrito da UFV e a versão *fancy*:
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/866c8125-840c-4e7c-a038-f721235b49a5" width="48%" />
+  <img src="https://github.com/user-attachments/assets/6303438a-375a-40da-90d1-2cc93afc5777" width="48%" />
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/40f4012f-ed63-4bb3-be0e-52f1c2a555de" width="48%" />
+  <img src="https://github.com/user-attachments/assets/898819ad-fadd-4198-bbf7-c3fd9e28a0bc" width="48%" />
+</p>
+
+Faça o download dos exemplos gerados pelo template:
+- [📄 Exemplo UFV](https://github.com/user-attachments/files/30202623/example_ufv_headers.pdf)
+- [📄 Exemplo fancy](https://github.com/user-attachments/files/30202624/example_fancy_headers.pdf)
+
 ## 📝 As normas da UFV suportadas automaticamente
 
 O template tem a opção `\UseUFVNorms{True}` para gerar um documento compatível com todas as normas de entrega de trabalho da UFV, segundo a [Normalização de Trabalhos Acadêmicos (2025)](https://www.bbt.ufv.br/wp-content/uploads/2025/02/Normalizacao-de-trabalhos-academicos-2025-UFV.pdf) e o [Manual de Normas e Procedimentos para Submissão de Dissertações e Teses (2025)](https://ppg.ufv.br/wp-content/uploads/2025/08/Manual-de-entrega-de-dissertacoes-e-teses.pdf).
@@ -32,26 +69,6 @@ Bibliografia:
 - ABNT com citação autor-data ou numérica (ambas permitidas)
 
 **Observação:** após aprovação da dissertação/tese, o AcademicoPG gera as folhas pré-textuais, de modo que é necessário usar `\PreTextual{False}` e `\SetStartingPage{ }` com o número de folhas geradas para entregar o documento sem os elementos pré-textuais e com a contagem correta.
-
-## 🚀 Quickstart
-
-Basta abrir o template pelo link abaixo:
-
-[![Abrir com Overleaf](https://overleaf.com/assets/images/color_image_button.png)](https://www.overleaf.com/docs?snip_uri=https://github.com/timotheosf/CleanTeX-UFV/archive/refs/heads/main.zip)
-
-A primeira compilação pode demorar alguns segundos carregando os comandos de build e macros. É necessário preencher as *"variáveis de ambiente"* (comandos) do arquivo `_setup.tex` com nome, título e demais informações.
-
-Caso queira usar localmente, baixe o [arquivo zip](https://github.com/timotheosf/CleanTeX-UFV/archive/refs/heads/main.zip) ou clone o repositório:
-```bash
-git clone https://github.com/timotheosf/CleanTeX-UFV.git
-```
-O template utiliza o `biber`, compilando com a seguinte receita:
-```bash
-pdflatex main.tex
-biber main
-pdflatex main.tex
-pdflatex main.tex
-```
 
 ## 🌲 Árvore de Diretórios
 
