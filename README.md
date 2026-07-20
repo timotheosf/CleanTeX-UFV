@@ -29,12 +29,12 @@ pdflatex main.tex
 Veja a diferença entre o formato estrito da UFV e a versão *fancy*:
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/866c8125-840c-4e7c-a038-f721235b49a5" width="48%" />
-  <img src="https://github.com/user-attachments/assets/6303438a-375a-40da-90d1-2cc93afc5777" width="48%" />
+    <img src="https://github.com/user-attachments/assets/40f4012f-ed63-4bb3-be0e-52f1c2a555de" width="48%" />
+    <img src="https://github.com/user-attachments/assets/898819ad-fadd-4198-bbf7-c3fd9e28a0bc" width="48%" />
 </p>
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/40f4012f-ed63-4bb3-be0e-52f1c2a555de" width="48%" />
-  <img src="https://github.com/user-attachments/assets/898819ad-fadd-4198-bbf7-c3fd9e28a0bc" width="48%" />
+    <img src="https://github.com/user-attachments/assets/6303438a-375a-40da-90d1-2cc93afc5777" width="48%" />
+    <img src="https://github.com/user-attachments/assets/866c8125-840c-4e7c-a038-f721235b49a5" width="48%" />
 </p>
 
 Faça o download dos exemplos gerados pelo template:
