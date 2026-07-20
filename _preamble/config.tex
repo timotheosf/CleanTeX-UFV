@@ -26,15 +26,15 @@
     \ifstrequal{#1}{true}{\toggletrue{pretextual}}{\togglefalse{pretextual}}}%
 }
 %> Comandos para nomear o documento
-\newcommand{\ThesisTitle}[1]{\def\thesistitle{#1}}
-\newcommand{\ThesisAuthor}[1]{\def\thesisauthor{#1}}
-\newcommand{\ThesisAdvisor}[1]{\def\thesisadvisor{#1}}
-\newcommand{\ThesisCoAdvisor}[1]{\def\thesiscoadvisor{#1}}
-\newcommand{\ThesisModality}[1]{\def\thesismodality{#1}}
-\newcommand{\ThesisDegree}[1]{\def\thesisdegree{#1}}
-\newcommand{\ThesisDate}[1]{\def\thesisdate{#1}}
-\newcommand{\ThesisProgram}[1]{\def\thesisprogram{#1}}
-\newcommand{\ThesisCenter}[1]{\def\thesiscenter{#1}}
+\newcommand{\DocTitle}[1]{\def\doctitle{#1}}
+\newcommand{\DocAuthor}[1]{\def\docauthor{#1}}
+\newcommand{\DocAdvisor}[1]{\def\docadvisor{#1}}
+\newcommand{\DocCoAdvisor}[1]{\def\doccoadvisor{#1}}
+\newcommand{\DocModality}[1]{\def\docmodality{#1}}
+\newcommand{\DocDegree}[1]{\def\docdegree{#1}}
+\newcommand{\DocDate}[1]{\def\docdate{#1}}
+\newcommand{\DocProgram}[1]{\def\docprogram{#1}}
+\newcommand{\DocCenter}[1]{\def\doccenter{#1}}
 \newcommand{\ReportCourse}[1]{\def\reportcourse{#1}}
 \newcommand{\DocAbstract}[1]{\def\docabstract{#1}}
 \newcommand{\DocResumo}[1]{\def\docresumo{#1}}
@@ -44,14 +44,14 @@
 \newcommand{\DocEpigraph}[2]{\def\docepigraph{#1}\def\epigraphauthor{#2}}
 
 %> Valores padrão (fallback) caso o usuário esqueça de preencher algo
-\def\thesistitle{Título não definido}
-\def\thesisauthor{Autor não definido}
-\def\thesiscoadvisor{} % Inicia vazio para o ifdefempty funcionar
-\def\thesismodality{Dissertação}
-\def\thesisdegree{Mestre}
-\def\thesisdate{\today}
-\def\thesisprogram{Física}
-\def\thesiscenter{Centro de Ciências Exatas}
+\def\doctitle{Título não definido}
+\def\docauthor{Autor não definido}
+\def\doccoadvisor{} % Inicia vazio para o ifdefempty funcionar
+\def\docmodality{Dissertação}
+\def\docdegree{Mestre}
+\def\docdate{\today}
+\def\docprogram{Física}
+\def\doccenter{Centro de Ciências Exatas}
 \def\reportcourse{}
 \def\docabstract{}
 \def\docresumo{}
@@ -96,11 +96,11 @@
 
     %> 4. Metadados no PDF e no Título do LaTeX
     \hypersetup{
-        pdftitle={\thesistitle},
-        pdfauthor={\thesisauthor}
+        pdftitle={\doctitle},
+        pdfauthor={\docauthor}
     }
-    \title{\thesistitle}
-    \author{\thesisauthor}
+    \title{\doctitle}
+    \author{\docauthor}
 
     %> 5. Carregar os macros pré-textuais
     \input{_title/generalmacros}

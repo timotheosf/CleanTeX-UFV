@@ -3,12 +3,12 @@
 
 \begin{center}
 Universidade Federal de Viçosa\\
-\thesiscenter\\
+\doccenter\\
 % Lógica condicional: Departamento (Graduação) vs Programa (Pós)
-\ifdefstring{\thesismodality}{Monografia}{%
-    Departamento de \thesisprogram\\
+\ifdefstring{\docmodality}{Monografia}{%
+    Departamento de \docprogram\\
 }{%
-    Programa de Pós-Graduação em \thesisprogram\\
+    Programa de Pós-Graduação em \docprogram\\
 }
 \end{center}
 
@@ -16,17 +16,17 @@ Universidade Federal de Viçosa\\
 
 \begin{center}
 \rule{0.4\linewidth}{0.8pt}\vspace{0.4cm}\par
-{\bfseries\Large \thesistitle \par}
+{\bfseries\Large \doctitle \par}
 \vspace{0.3cm}\rule{0.4\linewidth}{0.8pt}\par
 \end{center}
 
 \vspace*{\fill}
 \hfill
 \begin{minipage}[c][3cm][c]{8cm}
-\ifdefstring{\thesismodality}{Monografia}{%
-    \small{\thesismodality\ apresentada ao Departamento de \thesisprogram\ da Universidade Federal de Viçosa como parte das exigências para a conclusão da disciplina \reportcourse.}
+\ifdefstring{\docmodality}{Monografia}{%
+    \small{\docmodality\ apresentada ao Departamento de \docprogram\ da Universidade Federal de Viçosa como parte das exigências para a conclusão da disciplina \reportcourse.}
 }{%
-    \small{\thesismodality\ apresentada à Universidade Federal de Viçosa como parte das exigências para obtenção do título de \thesisdegree\ em \thesisprogram.}
+    \small{\docmodality\ apresentada à Universidade Federal de Viçosa como parte das exigências para obtenção do título de \docdegree\ em \docprogram.}
 }
 \end{minipage}
 
@@ -36,10 +36,10 @@ Universidade Federal de Viçosa\\
 \begin{minipage}[c][2cm][c]{8cm}
 \small{
 \begin{flushright}
-\textbf{Estudante:} \thesisauthor \\
-\textbf{Orientador:} \thesisadvisor \\
-\ifdefempty{\thesiscoadvisor}{}{%
-    \textbf{Coorientador:} \thesiscoadvisor%
+\textbf{Estudante:} \docauthor \\
+\textbf{Orientador:} \docadvisor \\
+\ifdefempty{\doccoadvisor}{}{%
+    \textbf{Coorientador:} \doccoadvisor%
 }
 \end{flushright}
 }
@@ -48,7 +48,7 @@ Universidade Federal de Viçosa\\
 \vspace{1cm}
 \begin{center}
 Viçosa, Minas Gerais -- Brasil\\
-\thesisdate
+\docdate
 \end{center}
 
 \end{titlepage}
