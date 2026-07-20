@@ -1,4 +1,5 @@
 \usepackage{etoolbox} % Permite lógica booleana e condicionais
+\usepackage{pgffor}   % Permite loops
 
 % --- DEFINIÇÃO DAS VARIÁVEIS (GETTERS/SETTERS) ---
 %> Variável booleana (true/false) para formatação
@@ -35,13 +36,17 @@
 \newcommand{\DocDate}[1]{\def\docdate{#1}}
 \newcommand{\DocProgram}[1]{\def\docprogram{#1}}
 \newcommand{\DocCenter}[1]{\def\doccenter{#1}}
+\newcommand{\DocPresentation}[1]{\def\docpresentation{#1}}
 \newcommand{\ReportCourse}[1]{\def\reportcourse{#1}}
 \newcommand{\DocAbstract}[1]{\def\docabstract{#1}}
 \newcommand{\DocResumo}[1]{\def\docresumo{#1}}
 \newcommand{\DocKeywords}[1]{\def\dockeywords{#1}}
 \newcommand{\DocPalavrasChave}[1]{\def\docpalavraschave{#1}}
+\newcommand{\DocDedication}[1]{\def\docdedication{#1}}
 \newcommand{\DocAcknowledgments}[1]{\def\docacknowledgments{#1}}
 \newcommand{\DocEpigraph}[2]{\def\docepigraph{#1}\def\epigraphauthor{#2}}
+\newcommand{\SetStartingPage}[1]{\def\docstartingpage{#1}}
+\newcommand{\BoardNames}[1]{\def\boardnames{#1}}
 
 %> Valores padrão (fallback) caso o usuário esqueça de preencher algo
 \def\doctitle{Título não definido}
@@ -52,14 +57,18 @@
 \def\docdate{\today}
 \def\docprogram{Física}
 \def\doccenter{Centro de Ciências Exatas}
+\def\docpresentation{}
 \def\reportcourse{}
 \def\docabstract{}
 \def\docresumo{}
 \def\dockeywords{}
 \def\docpalavraschave{}
+\def\docdedication{}
 \def\docacknowledgments{}
 \def\docepigraph{}
 \def\epigraphauthor{}
+\def\docstartingpage{}
+\def\boardnames{}
 
 %> Macro para construção do template
 \newcommand{\BuildTemplateSetup}{%
