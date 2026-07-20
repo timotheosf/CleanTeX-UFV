@@ -16,15 +16,15 @@ Toda a configuração do seu trabalho é feita preenchendo os comandos no arquiv
 
 ### 2. Dados do Documento
 ```latex
-\ThesisTitle{Título do documento}           
-\ThesisAuthor{Nome do orientado}            
-\ThesisAdvisor{Nome do orientador}          
-\ThesisCoAdvisor{Coorientador}              % Para mais de um coorientador, separe usando "\\"
-\ThesisModality{Dissertação}                % Monografia, Dissertação ou Tese
-\ThesisDegree{Mestre}                       % Mestre ou Doutor (deixe em branco para Monografia)
-\ThesisDate{Junho/2026}                     
-\ThesisProgram{Física}                      % Nome do departamento ou programa
-\ThesisCenter{Centro de Ciências Exatas}    
+\DocTitle{Título do documento}           
+\DocAuthor{Nome do orientado}            
+\DocAdvisor{Nome do orientador}          
+\DocCoAdvisor{Coorientador}              % Para mais de um coorientador, separe usando "\\"
+\DocModality{Dissertação}                % Monografia, Dissertação ou Tese
+\DocDegree{Mestre}                       % Mestre ou Doutor (deixe em branco para Monografia)
+\DocDate{Junho/2026}                     
+\DocProgram{Física}                      % Nome do departamento ou programa
+\DocCenter{Centro de Ciências Exatas}    
 \ReportCourse{Disciplina da Monografia}     % Ex: Monografia II (FIS 497)
 ```
 
