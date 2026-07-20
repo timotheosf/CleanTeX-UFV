@@ -1,55 +1,20 @@
 \documentclass[oneside, a4paper, 12pt]{book} % Retire a opção `oneside` para impressão
-\input{_preamble/config} % Importa o arquivo de configuração global do documento
 
-%> Opções de compilação
-\UseUFVNorms{False}      % Compilar utilizando as normas da UFV (True | False)
-\UseHeaders{True}       % Compilar com cabeçalho (True | False)
-\NumericFormat{True}    % Formato numérico de citação (True | False)
-\PreTextual{True}       % Gerar páginas pré-textuais no PDF (True | False)
+%> Importa o arquivo de formatação e macros do template
+\input{_preamble/config}
 
-%> Dados do documento:
-\DocTitle{Título do documento}           % Título do trabalho
-\DocAuthor{Nome do orientado}            % Nome do orientado
-\DocAdvisor{Nome do orientador}          % Nome do orientador
-%\DocCoAdvisor{Coorientador 1 \\ Coorientador 2} % Usar "\\" para separar nomes
-\DocModality{Dissertação}                % Monografia, Dissertação ou Tese
-\DocDegree{Mestre}                       % Mestre ou Doutor (deixar em branco se Monografia)
-\DocDate{Junho/2026}                     % Data
-\DocProgram{Física}                      % Nome do departamento/programa
-\DocCenter{Centro de Ciências Exatas}    % Nome do centro
-%\ReportCourse{Monografia II (FIS 497)}     % Nome da disciplina (para graduação)
+%> Importa o arquivo de metadados e configurações globais do documento (necessário preenchê-lo)
+\input{_setup}
 
-%> Elementos Pré-textuais:
-\DocResumo{Escreva aqui o texto do seu resumo em português. Segundo a norma, deve ser um parágrafo único que ressalta o objetivo, método, resultados e conclusões.}
-\DocPalavrasChave{Palavra 1; Palavra 2; Palavra 3}
-
-\DocAbstract{Write here your abstract in English. It should be a single paragraph highlighting the objective, method, results, and conclusions.}
-\DocKeywords{Keyword 1; Keyword 2; Keyword 3}
-
-\DocAcknowledgments{Insira aqui os seus agradecimentos\dots}
-
-% \DocEpigraph{Texto da citação}{Autor}
-\DocEpigraph{This is the Central Scrutinizer\\
-Joe has just worked himself into an imaginary frenzy\\
-During the fade-out of his imaginary song\\
-He begins to feel depressed now\\
-He knows the end is near\\
-He has realized at last, that imaginary guitar notes\\
-And imaginary vocals\\
-Exist only in the imagination of the imaginer!\\
-And ultimately, who gives a fuck anyway?\\
-
-So he goes back to his ugly little room\\
-And quietly dreams his last imaginary guitar solo
-}{Central Scrutinizer}
-
-\BuildTemplateSetup% Faz o build do template (função macro em _preamble/config)
+% Faz o build do template (função macro em _preamble/config)
+\BuildTemplateSetup %<-- NÃO COMENTAR/APAGAR ESTA LINHA
 
 \begin{document}
 
+%> Faz o build das páginas pré-textuais
+\BuildPretextual %<-- NÃO COMENTAR/APAGAR ESTA LINHA
 
-
-\BuildPretextual%
+%> O texto vem aqui:
 \input{lero_lero}
 
 %>Bibliogafia
