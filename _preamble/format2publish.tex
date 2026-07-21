@@ -3,6 +3,9 @@
         top=2.5cm,
         bottom=2.5cm
     ]{geometry}
+\usepackage{newpxtext}
+\usepackage{newpxmath}
+\usepackage{hyperref}
 \iftoggle{numericformat}{
     \usepackage[
         backend=biber,
@@ -32,8 +35,6 @@
 }{
     \pagestyle{plain} 
 }
-
-\usepackage{mathpazo}
 
 %> Formatação dos capítulos enumerados
 \titleformat{\chapter}[display]

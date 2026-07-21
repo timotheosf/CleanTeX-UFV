@@ -4,6 +4,13 @@
         right=2cm,
         bottom=2cm
     ]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+%\usepackage{newtxtext}
+\usepackage{tgheros}  % Carrega a fonte TeX Gyre Heros (clone da Arial)
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{newpxmath}
+\usepackage{hyperref}
 \iftoggle{numericformat}{
     \usepackage[
         backend=biber,
@@ -51,13 +58,6 @@
     \fancyhead[R]{\thepage}
     \renewcommand{\headrulewidth}{0pt}
 }
-
-\usepackage{setspace}
-\onehalfspacing
-%\usepackage{newtxtext}
-\usepackage{helvet} % Carrega a fonte Helvetica (clone da Arial)
-    \renewcommand{\familydefault}{\sfdefault}
-\usepackage{mathpazo}
 
 %> Formatação dos capítulos enumerados alinhada à esquerda
 \titleformat{\chapter}[block]
