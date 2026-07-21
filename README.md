@@ -6,40 +6,33 @@ A ideia é conferir liberdade para produzir um documento livre destas normas, ma
 
 ## 🚀 Quickstart
 
-Basta abrir o template pelo link abaixo:
-
-[![Abrir com Overleaf](https://overleaf.com/assets/images/color_image_button.png)](https://www.overleaf.com/docs?snip_uri=https://github.com/timotheosf/CleanTeX-UFV/archive/refs/heads/main.zip)
-
 A primeira compilação pode demorar alguns segundos carregando os comandos de build e macros. É necessário preencher as *"variáveis de ambiente"* (comandos) do arquivo `_setup.tex` com nome, título e demais informações.
 
-Caso queira usar localmente, baixe o [arquivo zip](https://github.com/timotheosf/CleanTeX-UFV/archive/refs/heads/main.zip) ou clone o repositório:
+Caso queira usar localmente (recomendado), baixe o [arquivo zip](https://github.com/timotheosf/CleanTeX-UFV/archive/refs/heads/main.zip) ou clone o repositório:
 ```bash
 git clone https://github.com/timotheosf/CleanTeX-UFV.git
 ```
-O template utiliza o `biber`, compilando com a seguinte receita:
+O template utiliza o processador [Biber](https://github.com/plk/biber) para as referências, e deve ser compilado com a seguinte receita:
 ```bash
 pdflatex main.tex
 biber main
 pdflatex main.tex
 pdflatex main.tex
 ```
+De qualquer forma, a melhor opção sempre é usar o [Latexmk](https://mgeier.github.io/latexmk.html); basta rodar:
+```bash
+latexmk -pdf main.tex 
+```
 
-## 👁️ Visualização do Template
+Para importar o template para o [Overleaf](https://overleaf.com), basta [usar este link](https://www.overleaf.com/docs?snip_uri=https://github.com/timotheosf/CleanTeX-UFV/archive/refs/heads/main.zip). Talvez a compilação trave, neste caso, use `false` em todos os `toggles` (`\UseUFVNorms{False}`, `\UseHeaders{False}`, `\NumericFormat{False}`, `\PreTextual{False}`), para o overleaf carregar os drivers e macros; após isso, deve compilar sem problema.
 
-Veja a diferença entre o formato estrito da UFV e a versão *fancy*:
-
-<p align="center">
-    <img src="https://github.com/user-attachments/assets/40f4012f-ed63-4bb3-be0e-52f1c2a555de" width="48%" />
-    <img src="https://github.com/user-attachments/assets/898819ad-fadd-4198-bbf7-c3fd9e28a0bc" width="48%" />
-</p>
-<p align="center">
-    <img src="https://github.com/user-attachments/assets/6303438a-375a-40da-90d1-2cc93afc5777" width="48%" />
-    <img src="https://github.com/user-attachments/assets/866c8125-840c-4e7c-a038-f721235b49a5" width="48%" />
-</p>
-
-Faça o download dos exemplos gerados pelo template:
-- [📄 Exemplo UFV](https://github.com/user-attachments/files/30202623/example_ufv_headers.pdf)
-- [📄 Exemplo fancy](https://github.com/user-attachments/files/30202624/example_fancy_headers.pdf)
+**Manual de uso rápido** (conferir a [árvore de diretórios](https://github.com/timotheosf/CleanTeX-UFV#-%C3%A1rvore-de-diret%C3%B3rios)):
+1. **Dados:** preencha o arquivo `_setup.tex` com as informações do seu trabalho (deixe em branco o que estiver indefinido);
+2. **Bibliografia:** preencha o arquivo `_bibliography/references.bib` com as referências do seu trabalho;
+3. **Personalizações:** 
+    - Use o arquivo `_preamble/packages.tex` para adicionar pacotes que precisar, confira o [manual de uso](https://github.com/timotheosf/CleanTeX-UFV#shipit-manual-de-uso) para conferir os pacotes carregados por padrão;
+    - Edite o arquivo `_preamble/standard_notation.tex` para adicionar notações matemáticas que precisar (e.g. `\DeclareMathOperator{\Tr}{Tr}` para definir o traço de uma matriz: $\text{Tr}[A]$);
+    - Edite o arquivo `_preamble/format2publish.tex` ao seu gosto, sem perder a possibilidade de compilar com a formatação exigida pela UFV.
 
 ## 📝 As normas da UFV suportadas automaticamente
 
@@ -70,6 +63,25 @@ Bibliografia:
 
 **Observação:** após aprovação da dissertação/tese, o AcademicoPG gera as folhas pré-textuais, de modo que é necessário usar `\PreTextual{False}` e `\SetStartingPage{ }` com o número de folhas geradas para entregar o documento sem os elementos pré-textuais e com a contagem correta.
 
+## 👁️ Visualização do Template
+
+Veja a diferença entre o formato estrito da UFV e a versão *fancy*:
+
+Páginas de texto corrido:
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/40f4012f-ed63-4bb3-be0e-52f1c2a555de" width="48%" />
+    <img src="https://github.com/user-attachments/assets/898819ad-fadd-4198-bbf7-c3fd9e28a0bc" width="48%" />
+</p>
+Capa:
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/6303438a-375a-40da-90d1-2cc93afc5777" width="48%" />
+    <img src="https://github.com/user-attachments/assets/866c8125-840c-4e7c-a038-f721235b49a5" width="48%" />
+</p>
+
+Faça o download dos exemplos gerados pelo template:
+- [📄 Exemplo UFV](https://github.com/user-attachments/files/30202623/example_ufv_headers.pdf)
+- [📄 Exemplo fancy](https://github.com/user-attachments/files/30202624/example_fancy_headers.pdf)
+
 ## 🌲 Árvore de Diretórios
 
 O código é estruturado de forma modular. A lógica tipográfica fica blindada e o usuário precisa interagir apenas com arquivos de configuração e texto.
@@ -78,8 +90,8 @@ O código é estruturado de forma modular. A lógica tipográfica fica blindada 
 CleanTeX-UFV/
 ├── _preamble/
 │   ├── config.tex              # Lógica do template (variáveis e controle de fluxo).
-│   ├── packages.tex            # Pacotes (math, tikz, etc).
-│   ├── standard_notation.tex   # Macros para padronizar a notação matemática.
+│   ├── packages.tex            # Pacotes (math, tikz, etc). <-- Adicione aqui os pacotes que achar necessário
+│   ├── standard_notation.tex   # Macros para padronizar a notação matemática. <-- Defina aqui as suas notações matemáticas
 │   ├── format2ufv.tex          # Driver: formatação estrita ABNT/UFV.
 │   └── format2publish.tex      # Driver: formatação fancy, estética internacional.
 ├── _title/
@@ -87,7 +99,7 @@ CleanTeX-UFV/
 │   └── generalmacros.tex       # Motores de construção das páginas pré-textuais e sumário.
 ├── _bibliography/
 │   ├── bib.tex                 # Chamada e aparência do BibLaTeX.
-│   └── references.bib          # Arquivo .bib: dados das referências.
+│   └── references.bib          # Arquivo .bib: dados das referências. <-- Adicione aqui as suas referências
 │
 ├── _setup.tex                  # Arquivo de configuração global (Metadados, toggles, etc).
 ├── main.tex                    # Ponto de entrada do documento. Totalmente limpo.
@@ -99,7 +111,7 @@ CleanTeX-UFV/
 
 A configuração do template é feita preenchendo os comandos no arquivo `_setup.tex`, mantendo o `main.tex` limpo, servindo apenas para chamar os capítulos e textos.
 
-### 1. Opções de Compilação (Toggles no `_setup.tex`)
+### 1. 🛠️ Opções de Compilação (Toggles no `_setup.tex`)
 ```latex
 \UseUFVNorms{True}   % True para compilar nas normas UFV. False para estética internacional.
 \UseHeaders{True}    % True para habilitar cabeçalho nas páginas.
@@ -113,7 +125,7 @@ A configuração do template é feita preenchendo os comandos no arquivo `_setup
 \SetStartingPage{}
 ```
 
-### 2. Dados do Documento
+### 2. 🗃️ Dados do Documento
 ```latex
 \DocTitle{Título do documento}           
 \DocAuthor{Nome do orientado}            
@@ -127,7 +139,7 @@ A configuração do template é feita preenchendo os comandos no arquivo `_setup
 \DocPresentation{Dissertação apresentada à Universidade Federal de Viçosa como parte das exigências para obtenção do título de Mestre em Física.}
 ```
 
-### 3. Elementos Pré-textuais (Opcionais)
+### 3. 🔏 Elementos Pré-textuais (Opcionais)
 Se não quiser usar algum destes elementos, basta deixar as chaves vazias `{}`. O template reorganiza as páginas e o sumário sozinho.
 
 ```latex
@@ -153,7 +165,7 @@ Se não quiser usar algum destes elementos, basta deixar as chaves vazias `{}`. 
 }
 ```
 
-### 4. Fazendo citações
+### 4. 📚 Fazendo citações
 
 O template usa o padrão `natbib` em conjunto com o Biber/BibLaTeX. Consulte a tabela abaixo para saber qual comando usar no seu texto:
 
@@ -167,3 +179,35 @@ O template usa o padrão `natbib` em conjunto com o Biber/BibLaTeX. Consulte a t
 | `\citep*{chave}` | [1] | (Scrutinizer, Lucille e Joe, 1979) | (2) | (SCRUTINIZER; LUCILLE; JOE, 1979) |
 | `\citeauthor*{chave}` | Scrutinizer, Lucille e Joe | Scrutinizer, Lucille e Joe | Scrutinizer; Lucille; Joe | SCRUTINIZER et al.* |
 | `\citeyear*{chave}` | 1979 | 1979 | 1979 | 1979 |
+
+### 5. 📦 Pacotes Utilizados
+
+**Essenciais e idiomas:**  
+`graphicx`, `babel (brazilian)`, `fontenc (T1)`, `indentfirst`, `microtype`, `csquotes (autostyle)`.
+
+**Estilo, layout e tipografia:**  
+`geometry`, `fancyhdr`, `titlesec`, `multicol`, `epigraph`, `caption`, `enumitem`, `pdfpages`, `setspace`*, `xcolor (svgnames)`, `tcolorbox (most)`.
+
+**Tabelas, bibliografia e links:**  
+`array`, `booktabs`, `hyperref`, `biblatex`.
+
+**Matemática, fontes e gráficos:**  
+`amsmath`, `amssymb`, `esint`, `upgreek`, `newpxmath`, `newpxtext`**, `tgheros`*, `tikz (angles, quotes, arrows.meta, babel)`.
+
+**Lógica de Programação do Template:**  
+`etoolbox`, `pgffor`.
+
+- \* *Pacotes carregados exclusivamente no modo de compilação das normas da UFV (`format2ufv.tex`).*  
+- \*\* *Pacote carregado exclusivamente no modo de formatação livre (`format2publish.tex`).*
+
+O pacote `xcolor` (cf. a [documentação](https://ctan.org/pkg/xcolor)) com a opção `svgnames` carrega as seguintes opções de cores nomeadas: 
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/5c1b4fcf-b58b-4ec7-a4bf-988e26f888e7" width="80%" />
+    <img src="https://github.com/user-attachments/assets/bd108075-a7ce-461c-bf7b-ef645374d4cf" width="80%" />
+</p>
+`NavyBlue`, `MediumBlue` e `ForestGreen` são utilizadas pelo `hyperref` na formatação livre; caso necessário, alterar no arquivo `_preamble/config.tex`.
+
+O pacote `tcolorbox` (cf. a [documentação](https://ctan.org/pkg/tcolorbox)) pode ser comentado. Ele é utilizado para carregar e configurar ambientes de teoremas, por exemplo:
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/9fed4c03-a9ac-4662-933a-1be4d55d6ffa" width="70%" />
+</p>
