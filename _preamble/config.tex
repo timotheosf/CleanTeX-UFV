@@ -73,9 +73,8 @@
 %> Macro para construção do template
 \newcommand{\BuildTemplateSetup}{%
     
-    %> 1. Carrega os pacotes e ferramentas do usuário
+    %> 1. Carrega os pacotes universais
     \input{_preamble/packages}
-    \input{_preamble/standard_notation}
 
     %> 2. Carrega as opções de formatação: UFV / Publish
     \iftoggle{ufvnorms}{%
@@ -84,7 +83,8 @@
         \input{_preamble/format2publish} % Carrega o driver fancy
     }
 
-    %> 3. Configura o hyperref e o bibtex
+    %> 3. Configura a notação padrão, o hyperref e o bibtex
+    \input{_preamble/standard_notation}
     \iftoggle{ufvnorms}{%
         \hypersetup{
             colorlinks=true, 
