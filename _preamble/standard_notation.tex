@@ -1,8 +1,12 @@
 %% --NOTAÇÃO PADRÃO--
 
 %> Alfabetos matemáticos e operadores
-\DeclareMathAlphabet{\pzcal}{OT1}{pzc}{m}{it} %> Usar \pzcal
-\DeclareMathAlphabet{\dcal}{U}{dutchcal}{m}{n} %> Usar \dcal
+\setmathfont[range={scr, bfscr}]{XITS Math}
+\let\dcal\mathscr
+\setmathfont[range={cal, bfcal}, Scale=MatchUppercase]{Asana Math}
+\let\pzcal\mathcal
 
-\newcommand{\diff}{% Diferencial
-    \mathop{}\!\mathrm{d}}
+%> Notação para variáveis e grandezas
+%> Diferencial
+\newcommand{\diff}{
+    \mathop{}\!\symup{d}}
